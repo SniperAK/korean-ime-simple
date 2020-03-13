@@ -1,0 +1,25 @@
+{
+  "name": "korean-ime-simple",
+  "version": "1.0.0",
+  "description": "Assamble Korean Input Method Editor. Easy to use and light.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.korean.ime.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SniperAK/korean-ime-simple.git"
+  },
+  "keywords": [
+    "korean",
+    "korean-ime",
+    "ime",
+    "koreanime"
+  ],
+  "author": "Alex Kang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SniperAK/korean-ime-simple/issues"
+  },
+  "homepage": "https://github.com/SniperAK/korean-ime-simple#readme"
+}
