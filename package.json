@@ -1,6 +1,6 @@
 {
   "name": "korean-ime-simple",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Assamble Korean Input Method Editor. Easy to use and light.",
   "main": "index.js",
   "scripts": {
