@@ -11,9 +11,9 @@
 
 ## Installation 
 
-> Install via npm
+> Install using npm
 ```
-npm install korea-ime-simple
+npm install korean-ime-simple
 ```
 
 ## Using
@@ -123,9 +123,10 @@ npm run test
 # 가벼운 한글 IME 1.0.0
 
 ## 설치
- >NPM 을 이용하여 설치 합니다.
+ > NPM 을 이용하여 설치 합니다.
+
 ```
-npm install korea-ime-simple
+npm install korean-ime-simple
 ```
 
 ## 테스트
