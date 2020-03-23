@@ -8,6 +8,9 @@
 > 
 > Assamble Korean character  sequentially.
 
+# Versions History
+- 1.0 release
+- 1.1 support extended functions and consts via [extends](##EXTENDS)
 
 ## Installation 
 
@@ -118,6 +121,22 @@ npm run test
 |ㅑ|갛|꺟|냫|닿|...|퍅|핳|
 |...|...|...|...|...|...|...|...|
 |ㅣ|깋|낗|닣|띻|...|핗|힣|
+
+## Extends
+- Const
+  - R, SR, BR
+  - FIRST,  MIDDLE,  LAST
+  - FIRSTs, MIDDLEs, LASTs
+  - ASSAMBLED_MIDDLE, DISASSAMBLED_MIDDLE
+  - ASSAMBLED_LAST,   DISASSAMBLED_LAST
+- Utils
+  - assamble(first, middle || asambledMiddle, last || assambledLast )
+  - disassamble( a syllable )
+  - isKorean( a syllable )
+  - decrease( a syllable )
+
+
+
 
 
 # 가벼운 한글 IME 1.0.0

@@ -1,39 +1,11 @@
-
-const KoreanDeComplexLast = {
-  // 'ㄲ':['ㄱ','ㄱ'],
-  // 'ㅆ':['ㅅ','ㅅ'],
-  'ㄳ':['ㄱ','ㅅ'],
-  'ㄵ':['ㄴ','ㅈ'],
-  'ㄶ':['ㄴ','ㅎ'],
-  'ㄺ':['ㄹ','ㄱ'],
-  'ㄻ':['ㄹ','ㅁ'],
-  'ㄼ':['ㄹ','ㅂ'],
-  'ㄽ':['ㄹ','ㅅ'],
-  'ㄾ':['ㄹ','ㅌ'],
-  'ㄿ':['ㄹ','ㅍ'],
-  'ㅀ':['ㄹ','ㅎ'],
-  'ㅄ':['ㅂ','ㅅ'],
-}
-
-const KoreanDeComplexMiddle = {
-  'ㅘ':['ㅗ','ㅏ'],
-  'ㅙ':['ㅗ','ㅐ'],
-  'ㅚ':['ㅗ','ㅣ'],
-  'ㅝ':['ㅜ','ㅓ'],
-  'ㅞ':['ㅜ','ㅔ'],
-  'ㅟ':['ㅜ','ㅣ'],
-  'ㅢ':['ㅡ','ㅣ'],
-}
-
-const Firsts  = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
-const Middles = 'ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ';
-const Lasts   = 'ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ';
-const KOREAN = {
-  Firsts:Firsts.split(''),
-  Middles:Middles.split(''),
-  Lasts: ['', ...Lasts.split('')]
-};
-
+const {
+  R, SR, BR,
+  FIRST,  MIDDLE,  LAST,
+  FIRSTs, MIDDLEs, LASTs,
+  ASSAMBLED_MIDDLE, DISASSAMBLED_MIDDLE,
+  ASSAMBLED_LAST,   DISASSAMBLED_LAST,
+  assamble, isKorean
+} = require('./common');
 
 function destructiveKorean( str ) {
   let first, middle, last;
@@ -51,24 +23,24 @@ function destructiveKorean( str ) {
     }
 
     // case of not korean
-    if (cCode < 0xAC00 || cCode > 0xD7A3) {
+    if (cCode < R.S || cCode > R.E) {
         chars.push(str.charAt(i));
         continue;
     }
 
-    cCode  = str.charCodeAt(i) - 0xAC00;
+    cCode  = str.charCodeAt(i) - R.S;
 
     last = cCode % 28; // get element of last
     middle = ((cCode - last) / 28 ) % 21 // get element of middle
     first  = (((cCode - last) / 28 ) - middle ) / 21 // get element of first
 
     chars.push(
-      KOREAN.Firsts[first], 
-      ...KoreanDeComplexMiddle[ KOREAN.Middles[middle] ] ? KoreanDeComplexMiddle[ KOREAN.Middles[middle] ] : [KOREAN.Middles[middle]],
+      FIRSTs[first], 
+      ...DISASSAMBLED_MIDDLE[ MIDDLEs[middle] ] ? DISASSAMBLED_MIDDLE[ MIDDLEs[middle] ] : [MIDDLEs[middle]],
     );
-    if (KOREAN.Lasts[last] !== '') { 
+    if (LASTs[last] !== '') { 
       chars.push(
-        ...KoreanDeComplexLast[ KOREAN.Lasts[last] ] ? KoreanDeComplexLast[ KOREAN.Lasts[last] ] : [KOREAN.Lasts[last]],
+        ...DISASSAMBLED_LAST[ LASTs[last] ] ? DISASSAMBLED_LAST[ LASTs[last] ] : [LASTs[last]],
       );
     }
   }
@@ -93,7 +65,7 @@ const test = (string)=>{
   let value = elements.reduce((p,key) => {
     return KoreanIME( p, key );
   }, '');
-  return {elements,value, success:value == string};
+  return {elements:elements.join(''),value, success:value == string};
 }
 
 const TestResult = TestCases.map(test);
