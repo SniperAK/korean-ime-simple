@@ -2,9 +2,9 @@ const {
   R, SR, BR,
   FIRST,  MIDDLE,  LAST,
   FIRSTs, MIDDLEs, LASTs,
-  ASSAMBLED_MIDDLE, DISASSAMBLED_MIDDLE,
-  ASSAMBLED_LAST,   DISASSAMBLED_LAST,
-  assamble, isKorean
+  ASSEMBLED_MIDDLE, DISASSEMBLED_MIDDLE,
+  ASSEMBLED_LAST,   DISASSEMBLED_LAST,
+  assemble, isKorean
 } = require('./common');
 
 function destructiveKorean( str ) {
@@ -36,11 +36,11 @@ function destructiveKorean( str ) {
 
     chars.push(
       FIRSTs[first], 
-      ...DISASSAMBLED_MIDDLE[ MIDDLEs[middle] ] ? DISASSAMBLED_MIDDLE[ MIDDLEs[middle] ] : [MIDDLEs[middle]],
+      ...DISASSEMBLED_MIDDLE[ MIDDLEs[middle] ] ? DISASSEMBLED_MIDDLE[ MIDDLEs[middle] ] : [MIDDLEs[middle]],
     );
     if (LASTs[last] !== '') { 
       chars.push(
-        ...DISASSAMBLED_LAST[ LASTs[last] ] ? DISASSAMBLED_LAST[ LASTs[last] ] : [LASTs[last]],
+        ...DISASSEMBLED_LAST[ LASTs[last] ] ? DISASSEMBLED_LAST[ LASTs[last] ] : [LASTs[last]],
       );
     }
   }

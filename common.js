@@ -10,26 +10,26 @@ const R   = {S:'가'.charCodeAt(0), E:'힣'.charCodeAt(0)};
 const SR  = {S:'ㄱ'.charCodeAt(0), E:'ㅎ'.charCodeAt(0)};
 const BR  = {S:'ㅏ'.charCodeAt(0), E:'ㅣ'.charCodeAt(0)};
 
-const ASSAMBLED_MIDDLE     = { 'ㅗㅏ':'ㅘ','ㅗㅐ':'ㅙ','ㅗㅣ':'ㅚ','ㅜㅓ':'ㅝ','ㅜㅔ':'ㅞ','ㅜㅣ':'ㅟ','ㅡㅣ':'ㅢ'}; 
-const DISASSAMBLED_MIDDLE  = { 'ㅘ':'ㅗㅏ','ㅙ':'ㅗㅐ','ㅚ':'ㅗㅣ','ㅝ':'ㅜㅓ','ㅞ':'ㅜㅔ','ㅟ':'ㅜㅣ','ㅢ':'ㅡㅣ'}; 
-const ASSAMBLED_LAST       = { 'ㄱㅅ':'ㄳ','ㄴㅈ':'ㄵ','ㄴㅎ':'ㄶ','ㄹㄱ':'ㄺ','ㄹㅁ':'ㄻ','ㄹㅂ':'ㄼ','ㄹㅅ':'ㄽ','ㄹㅌ':'ㄾ','ㄹㅍ':'ㄿ','ㄹㅎ':'ㅀ','ㅂㅅ':'ㅄ'     };
-const DISASSAMBLED_LAST    = { 'ㄳ':'ㄱㅅ','ㄵ':'ㄴㅈ','ㄶ':'ㄴㅎ','ㄺ':'ㄹㄱ','ㄻ':'ㄹㅁ','ㄼ':'ㄹㅂ','ㄽ':'ㄹㅅ','ㄾ':'ㄹㅌ','ㄿ':'ㄹㅍ','ㅀ':'ㄹㅎ','ㅄ':'ㅂㅅ'};
+const ASSEMBLED_MIDDLE     = { 'ㅗㅏ':'ㅘ','ㅗㅐ':'ㅙ','ㅗㅣ':'ㅚ','ㅜㅓ':'ㅝ','ㅜㅔ':'ㅞ','ㅜㅣ':'ㅟ','ㅡㅣ':'ㅢ'}; 
+const DISASSEMBLED_MIDDLE  = { 'ㅘ':'ㅗㅏ','ㅙ':'ㅗㅐ','ㅚ':'ㅗㅣ','ㅝ':'ㅜㅓ','ㅞ':'ㅜㅔ','ㅟ':'ㅜㅣ','ㅢ':'ㅡㅣ'}; 
+const ASSEMBLED_LAST       = { 'ㄱㅅ':'ㄳ','ㄴㅈ':'ㄵ','ㄴㅎ':'ㄶ','ㄹㄱ':'ㄺ','ㄹㅁ':'ㄻ','ㄹㅂ':'ㄼ','ㄹㅅ':'ㄽ','ㄹㅌ':'ㄾ','ㄹㅍ':'ㄿ','ㄹㅎ':'ㅀ','ㅂㅅ':'ㅄ'     };
+const DISASSEMBLED_LAST    = { 'ㄳ':'ㄱㅅ','ㄵ':'ㄴㅈ','ㄶ':'ㄴㅎ','ㄺ':'ㄹㄱ','ㄻ':'ㄹㅁ','ㄼ':'ㄹㅂ','ㄽ':'ㄹㅅ','ㄾ':'ㄹㅌ','ㄿ':'ㄹㅍ','ㅀ':'ㄹㅎ','ㅄ':'ㅂㅅ'};
 
-const assamble = (first,middle,last)=>{
+const assemble = (first,middle,last)=>{
   if( first  && !middle ) return first;
-  if( !first && middle ) return ASSAMBLED_MIDDLE[ middle ] || middle;
+  if( !first && middle ) return ASSEMBLED_MIDDLE[ middle ] || middle;
   if( !first && !middle && !last) return '';
-  // console.log('assamble', first,middle, last );
-  let li          = LAST.indexOf( ASSAMBLED_LAST[ last ] || last );
+  // console.log('assemble', first,middle, last );
+  let li          = LAST.indexOf( ASSEMBLED_LAST[ last ] || last );
   return String.fromCharCode( 
     R.S + 
     (21 * 28 * FIRST.indexOf( first )) + 
-    (28 * MIDDLE.indexOf( ASSAMBLED_MIDDLE[ middle ] ||  middle )) + 
+    (28 * MIDDLE.indexOf( ASSEMBLED_MIDDLE[ middle ] ||  middle )) + 
     (li >= 0 ? li + 1 : li < 0 ? 0 : li)  //(li > 0 ? li + 1 : li <= 0 ? 0 : li) 
   ); 
 }
 
-const disassamble = (v)=>{
+const disassemble = (v)=>{
   if( v == FIRST.indexOf(v) > -1 ) return [v];
   if( v == MIDDLE.indexOf(v) > -1 ) return [undefined, v];
 
@@ -40,8 +40,8 @@ const disassamble = (v)=>{
   const fi = ((((c - R.S) - li) / 28 ) - mi ) / 21;    // 초성 인덱스
   const P = { F:FIRSTs[fi], M:MIDDLEs[mi], L:LASTs[li] }
   
-  const DM  = DISASSAMBLED_MIDDLE[ P.M ];  // 복합 중성 분해 (ex :  ㅢ => ㅡㅣ )
-  const DL  = DISASSAMBLED_LAST[ P.L ];  // 복합 종성 분해 (ex :  ㅆ => ㅅㅅ )
+  const DM  = DISASSEMBLED_MIDDLE[ P.M ];  // 복합 중성 분해 (ex :  ㅢ => ㅡㅣ )
+  const DL  = DISASSEMBLED_LAST[ P.L ];  // 복합 종성 분해 (ex :  ㅆ => ㅅㅅ )
   return [ P.F, DM || P.M, DL || P.L ]
 }
 
@@ -55,8 +55,8 @@ module.exports = {
   FIRST,  MIDDLE,  LAST,
   FIRSTs, MIDDLEs, LASTs,
   R, SR, BR,
-  ASSAMBLED_MIDDLE, DISASSAMBLED_MIDDLE,
-  ASSAMBLED_LAST,   DISASSAMBLED_LAST,
-  assamble, disassamble,
+  ASSEMBLED_MIDDLE, DISASSEMBLED_MIDDLE,
+  ASSEMBLED_LAST,   DISASSEMBLED_LAST,
+  assemble, disassemble,
   isKorean, 
 }
