@@ -1,26 +1,29 @@
-
 # Korean IME Simple 1.0.0
+
 > Korean Characters made by King Sejong the Great
-> 
-> Assamble Korean Input Method Editor. 
-> 
+>
+> assemble Korean Input Method Editor.
+>
 > Easy to use and light.
-> 
-> Assamble Korean character  sequentially.
+>
+> assemble Korean character sequentially.
 
 # Versions History
+
 - 1.0 release
 - 1.1 support extended functions and consts via [extends](##EXTENDS)
 
-## Installation 
+## Installation
 
 > Install using npm
+
 ```
 npm install korean-ime-simple
 ```
 
 ## Using
-> Only support one method for assamble previus string with current inputted string. 
+
+> Only support one method for assemble previus string with current inputted string.
 
 ```
 import KoreanIme from 'Korean-ime-simple'
@@ -33,7 +36,7 @@ let value = KoreanIme( value, input );
 
 ## Test
 
-``` 
+```
 npm run test
 ```
 
@@ -45,32 +48,32 @@ npm run test
 
 > Korean-ime-simple`s principle is simpple and not complex.
 
-- Assambled Korenn Unicode Rull
-  - All Korean element character located in sequentially. 
+- assembled Korenn Unicode Rull
+  - All Korean element character located in sequentially.
   - All of Korean is combined three method and that character is two of parts that called Jaeum, Moeum
-  - All Assambled Korean has rull that 3-dimensions for each syllable.
-  - Can Disassambling assambled Korean string to elements.
-  - All syllables have own combination. ( code using named Assambled )
+  - All assembled Korean has rull that 3-dimensions for each syllable.
+  - Can Disassambling assembled Korean string to elements.
+  - All syllables have own combination. ( code using named assembled )
     - First Syllables
-      Normal Characters in Korean keyboard 
+      Normal Characters in Korean keyboard
       ```
       ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ
       ```
       Possabled to assambling combination for First.
-      ``` 
+      ```
       ㄲㄸㅃㅆㅉ
       ```
-    - Middle Syllable 
-      Normal Characters in Korean keyboard 
+    - Middle Syllable
+      Normal Characters in Korean keyboard
       ```
       ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅛㅜㅠㅡㅣ
       ```
       Combination
       ```
       ㅘㅙㅚㅝㅞㅟㅠㅢ
-      ``` 
-    - Assambled Last Syllable
-      Normal Characters in Korean keyboard 
+      ```
+    - assembled Last Syllable
+      Normal Characters in Korean keyboard
       ```
       ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ
       ```
@@ -80,11 +83,11 @@ npm run test
       ```
 - IME
   - Input character is only support single element.
-  - Check inputted character is Korean element. 
+  - Check inputted character is Korean element.
   - Check previus last character is Korean.
-  - Check previus character is element string or assambled or combinated element.
+  - Check previus character is element string or assembled or combinated element.
   - Merger to previus string and inputted character.
-  - Return fully assambled string.
+  - Return fully assembled string.
 
 ### 3 Dimension Matrix of Korean
 
@@ -95,54 +98,55 @@ npm run test
 - third axis called Joing-Sung (종성)
   > ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ
 
-### first layer of 2-dimension map 
-|  |ㄱ|ㄲ|ㄴ|ㄸ|...|ㅍ|ㅎ|
-|--|--|--|--|--|--|--|--|
-|ㅏ|가|까|나|따|...|파|하|
-|ㅐ|개|깨|내|때|...|패|해|
-|ㅑ|갸|꺄|냐|땨|...|퍄|햐|
-|...|...|...|...|...|...|...|...|
-|ㅣ|기|끼|니|띠|...|피|히|
+### first layer of 2-dimension map
+
+|     | ㄱ  | ㄲ  | ㄴ  | ㄸ  | ... | ㅍ  | ㅎ  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ㅏ  | 가  | 까  | 나  | 따  | ... | 파  | 하  |
+| ㅐ  | 개  | 깨  | 내  | 때  | ... | 패  | 해  |
+| ㅑ  | 갸  | 꺄  | 냐  | 땨  | ... | 퍄  | 햐  |
+| ... | ... | ... | ... | ... | ... | ... | ... |
+| ㅣ  | 기  | 끼  | 니  | 띠  | ... | 피  | 히  |
 
 ### second layer of 2-dimension map
-|  |ㄱ|ㄲ|ㄴ|ㄸ|...|ㅍ|ㅎ|
-|--|--|--|--|--|--|--|--|
-|ㅏ|각|깍|낙|딱|...|팍|학|
-|ㅐ|객|깩|낵|땍|...|팩|핵|
-|ㅑ|갹|꺅|냑|댝|...|퍅|햑|
-|...|...|...|...|...|...|...|...|
-|ㅣ|긱|끽|닉|띡|...|픽|힉|
+
+|     | ㄱ  | ㄲ  | ㄴ  | ㄸ  | ... | ㅍ  | ㅎ  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ㅏ  | 각  | 깍  | 낙  | 딱  | ... | 팍  | 학  |
+| ㅐ  | 객  | 깩  | 낵  | 땍  | ... | 팩  | 핵  |
+| ㅑ  | 갹  | 꺅  | 냑  | 댝  | ... | 퍅  | 햑  |
+| ... | ... | ... | ... | ... | ... | ... | ... |
+| ㅣ  | 긱  | 끽  | 닉  | 띡  | ... | 픽  | 힉  |
 
 ### last layer of 2-dimension map
-|  |ㄱ|ㄲ|ㄴ|ㄸ|...|ㅍ|ㅎ|
-|--|--|--|--|--|--|--|--|
-|ㅏ|갛|깧|낳|땋|...|팧|핳|
-|ㅐ|갷|꺃|냏|땧|...|팩|햏|
-|ㅑ|갛|꺟|냫|닿|...|퍅|핳|
-|...|...|...|...|...|...|...|...|
-|ㅣ|깋|낗|닣|띻|...|핗|힣|
+
+|     | ㄱ  | ㄲ  | ㄴ  | ㄸ  | ... | ㅍ  | ㅎ  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ㅏ  | 갛  | 깧  | 낳  | 땋  | ... | 팧  | 핳  |
+| ㅐ  | 갷  | 꺃  | 냏  | 땧  | ... | 팩  | 햏  |
+| ㅑ  | 갛  | 꺟  | 냫  | 닿  | ... | 퍅  | 핳  |
+| ... | ... | ... | ... | ... | ... | ... | ... |
+| ㅣ  | 깋  | 낗  | 닣  | 띻  | ... | 핗  | 힣  |
 
 ## Extends
+
 - Const
   - R, SR, BR
-  - FIRST,  MIDDLE,  LAST
+  - FIRST, MIDDLE, LAST
   - FIRSTs, MIDDLEs, LASTs
-  - ASSAMBLED_MIDDLE, DISASSAMBLED_MIDDLE
-  - ASSAMBLED_LAST,   DISASSAMBLED_LAST
+  - assembleD_MIDDLE, DISassembleD_MIDDLE
+  - assembleD_LAST, DISassembleD_LAST
 - Utils
-  - assamble(first, middle || asambledMiddle, last || assambledLast )
-  - disassamble( a syllable )
+  - assemble(first, middle || asambledMiddle, last || assembledLast )
+  - disassemble( a syllable )
   - isKorean( a syllable )
   - decrease( a syllable )
-
-
-
-
 
 # 가벼운 한글 IME 1.0.0
 
 ## 설치
- > NPM 을 이용하여 설치 합니다.
+
+> NPM 을 이용하여 설치 합니다.
 
 ```
 npm install korean-ime-simple
@@ -159,8 +163,8 @@ npm run test
 > ```
 
 ## 사용법
-> 문자열 조합을 위하여 이전 문자열에 입력된 문자열을 조합하는 하나의 메소드만이 지원됩니다. 
 
+> 문자열 조합을 위하여 이전 문자열에 입력된 문자열을 조합하는 하나의 메소드만이 지원됩니다.
 
 ```
 import KoreanIme from 'Korean-ime-simple'
@@ -170,11 +174,13 @@ import KoreanIme from 'Korean-ime-simple'
 let value = KoreanIme( value, input );
 
 ```
+
 ## 원리
 
 > Korean-ime-simple의 기본 원리.
 
 - Unicode 한글 문자열 원리
+
   - Unicode 상의 모든 한글 문자열은 순서에 맞게 나열 되어있다.
   - 모든 한글 문자열은 세가지 방법으로 자음과 모음으로 불리우는 요소들의 결합이다.
   - 모든 한글 문자열은 3 차원의 조합 방법을 이용하여 조합된다.
@@ -186,7 +192,7 @@ let value = KoreanIme( value, input );
       ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ
       ```
       조합이 가능한 초성
-      ``` 
+      ```
       ㄲㄸㅃㅆㅉ
       ```
     - 중성
@@ -197,9 +203,9 @@ let value = KoreanIme( value, input );
       조합이 가능한 중성
       ```
       ㅘㅙㅚㅝㅞㅟㅠㅢ
-      ``` 
+      ```
     - 종성
-      Normal Characters in Korean keyboard 
+      Normal Characters in Korean keyboard
       ```
       ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ
       ```
@@ -213,11 +219,10 @@ let value = KoreanIme( value, input );
   - 입력된 문자가 한글인지 판단한다.
   - 이전에 입력된 문자열의 마지막 문자가 한글로 합성이 가능한 문자열인지 판단.
   - 마지막 문자가 개별 요소인지, 복합된 요소인지, 판단
-  - 마지막 문자열의 요소와 입력된 글자를 합친다. 
-  - 완성된 문자열을 반환한다. 
+  - 마지막 문자열의 요소와 입력된 글자를 합친다.
+  - 완성된 문자열을 반환한다.
 
-
-### 3 차원 구성의 한글 문자 조합 
+### 3 차원 구성의 한글 문자 조합
 
 - 첫번째 축 초성
   > ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ
@@ -227,28 +232,31 @@ let value = KoreanIme( value, input );
   > ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ
 
 ### 첫번째 2차원 구성 ( 받침 없는 경우 )
-|  |ㄱ|ㄲ|ㄴ|ㄸ|...|ㅍ|ㅎ|
-|--|--|--|--|--|--|--|--|
-|ㅏ|가|까|나|따|...|파|하|
-|ㅐ|개|깨|내|때|...|패|해|
-|ㅑ|갸|꺄|냐|땨|...|퍄|햐|
-|...|...|...|...|...|...|...|...|
-|ㅣ|기|끼|니|띠|...|피|히|
+
+|     | ㄱ  | ㄲ  | ㄴ  | ㄸ  | ... | ㅍ  | ㅎ  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ㅏ  | 가  | 까  | 나  | 따  | ... | 파  | 하  |
+| ㅐ  | 개  | 깨  | 내  | 때  | ... | 패  | 해  |
+| ㅑ  | 갸  | 꺄  | 냐  | 땨  | ... | 퍄  | 햐  |
+| ... | ... | ... | ... | ... | ... | ... | ... |
+| ㅣ  | 기  | 끼  | 니  | 띠  | ... | 피  | 히  |
 
 ### 두번째 2차원 구성 ( ㄱ 받침 )
-|  |ㄱ|ㄲ|ㄴ|ㄸ|...|ㅍ|ㅎ|
-|--|--|--|--|--|--|--|--|
-|ㅏ|각|깍|낙|딱|...|팍|학|
-|ㅐ|객|깩|낵|땍|...|팩|핵|
-|ㅑ|갹|꺅|냑|댝|...|퍅|햑|
-|...|...|...|...|...|...|...|...|
-|ㅣ|긱|끽|닉|띡|...|픽|힉|
+
+|     | ㄱ  | ㄲ  | ㄴ  | ㄸ  | ... | ㅍ  | ㅎ  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ㅏ  | 각  | 깍  | 낙  | 딱  | ... | 팍  | 학  |
+| ㅐ  | 객  | 깩  | 낵  | 땍  | ... | 팩  | 핵  |
+| ㅑ  | 갹  | 꺅  | 냑  | 댝  | ... | 퍅  | 햑  |
+| ... | ... | ... | ... | ... | ... | ... | ... |
+| ㅣ  | 긱  | 끽  | 닉  | 띡  | ... | 픽  | 힉  |
 
 ### 마지막 2차원 구성 ( ㅎ 받침 )
-|  |ㄱ|ㄲ|ㄴ|ㄸ|...|ㅍ|ㅎ|
-|--|--|--|--|--|--|--|--|
-|ㅏ|갛|깧|낳|땋|...|팧|핳|
-|ㅐ|갷|꺃|냏|땧|...|팩|햏|
-|ㅑ|갛|꺟|냫|닿|...|퍅|핳|
-|...|...|...|...|...|...|...|...|
-|ㅣ|깋|낗|닣|띻|...|핗|힣|
+
+|     | ㄱ  | ㄲ  | ㄴ  | ㄸ  | ... | ㅍ  | ㅎ  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ㅏ  | 갛  | 깧  | 낳  | 땋  | ... | 팧  | 핳  |
+| ㅐ  | 갷  | 꺃  | 냏  | 땧  | ... | 팩  | 햏  |
+| ㅑ  | 갛  | 꺟  | 냫  | 닿  | ... | 퍅  | 핳  |
+| ... | ... | ... | ... | ... | ... | ... | ... |
+| ㅣ  | 깋  | 낗  | 닣  | 띻  | ... | 핗  | 힣  |
