@@ -61,10 +61,13 @@ const TestCases = [
 ];
 
 const test = (string)=>{
+  console.log('before', string);
   let elements = destructiveKorean( string );
+  console.log('elements', elements);
   let value = elements.reduce((p,key) => {
     return KoreanIME( p, key );
   }, '');
+  console.log('after', value);
   return {elements:elements.join(''),value, success:value == string};
 }
 

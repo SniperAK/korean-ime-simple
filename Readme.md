@@ -1,17 +1,16 @@
-# Korean IME Simple 1.0.0
-
+# Korean IME Simple 1.1.1
 > Korean Characters made by King Sejong the Great
->
-> assemble Korean Input Method Editor.
->
+> 
+> Assemble Korean Input Method Editor. 
+> 
 > Easy to use and light.
->
-> assemble Korean character sequentially.
+> 
+> Assemble Korean character  sequentially.
 
 # Versions History
-
-- 1.0 release
-- 1.1 support extended functions and consts via [extends](##EXTENDS)
+- 1.0.0 Release.
+- 1.1.0 Support extended functions and consts via [extends](##EXTENDS)
+- 1.1.1 Fixed mistype spelling as assamble to assemble.
 
 ## Installation
 
@@ -22,8 +21,7 @@ npm install korean-ime-simple
 ```
 
 ## Using
-
-> Only support one method for assemble previus string with current inputted string.
+> Only support one method for assemble previus string with current inputted string. 
 
 ```
 import KoreanIme from 'Korean-ime-simple'
@@ -48,12 +46,13 @@ npm run test
 
 > Korean-ime-simple`s principle is simpple and not complex.
 
-- assembled Korenn Unicode Rull
-  - All Korean element character located in sequentially.
+
+- Assembled Korenn Unicode Rull
+  - All Korean element character located in sequentially. 
   - All of Korean is combined three method and that character is two of parts that called Jaeum, Moeum
-  - All assembled Korean has rull that 3-dimensions for each syllable.
+  - All Assembled Korean has rull that 3-dimensions for each syllable.
   - Can Disassambling assembled Korean string to elements.
-  - All syllables have own combination. ( code using named assembled )
+  - All syllables have own combination. ( code using named Assembled )
     - First Syllables
       Normal Characters in Korean keyboard
       ```
@@ -71,9 +70,9 @@ npm run test
       Combination
       ```
       ㅘㅙㅚㅝㅞㅟㅠㅢ
-      ```
-    - assembled Last Syllable
-      Normal Characters in Korean keyboard
+      ``` 
+    - Assembled Last Syllable
+      Normal Characters in Korean keyboard 
       ```
       ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ
       ```
@@ -134,8 +133,8 @@ npm run test
   - R, SR, BR
   - FIRST, MIDDLE, LAST
   - FIRSTs, MIDDLEs, LASTs
-  - assembleD_MIDDLE, DISassembleD_MIDDLE
-  - assembleD_LAST, DISassembleD_LAST
+  - ASSEMBLED_MIDDLE, DISASSEMBLED_MIDDLE
+  - ASSEMBLED_LAST,   DISASSEMBLED_LAST
 - Utils
   - assemble(first, middle || asambledMiddle, last || assembledLast )
   - disassemble( a syllable )
