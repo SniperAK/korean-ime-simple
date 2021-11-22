@@ -1,16 +1,17 @@
 
-# Korean IME Simple 1.0.0
+# Korean IME Simple 1.1.1
 > Korean Characters made by King Sejong the Great
 > 
-> Assamble Korean Input Method Editor. 
+> Assemble Korean Input Method Editor. 
 > 
 > Easy to use and light.
 > 
-> Assamble Korean character  sequentially.
+> Assemble Korean character  sequentially.
 
 # Versions History
-- 1.0 release
-- 1.1 support extended functions and consts via [extends](##EXTENDS)
+- 1.0.0 Release.
+- 1.1.0 Support extended functions and consts via [extends](##EXTENDS)
+- 1.1.1 Fixed mistype spelling as assamble to assemble.
 
 ## Installation 
 
@@ -20,7 +21,7 @@ npm install korean-ime-simple
 ```
 
 ## Using
-> Only support one method for assamble previus string with current inputted string. 
+> Only support one method for assemble previus string with current inputted string. 
 
 ```
 import KoreanIme from 'Korean-ime-simple'
@@ -45,12 +46,12 @@ npm run test
 
 > Korean-ime-simple`s principle is simpple and not complex.
 
-- Assambled Korenn Unicode Rull
+- Assembled Korenn Unicode Rull
   - All Korean element character located in sequentially. 
   - All of Korean is combined three method and that character is two of parts that called Jaeum, Moeum
-  - All Assambled Korean has rull that 3-dimensions for each syllable.
-  - Can Disassambling assambled Korean string to elements.
-  - All syllables have own combination. ( code using named Assambled )
+  - All Assembled Korean has rull that 3-dimensions for each syllable.
+  - Can Disassambling assembled Korean string to elements.
+  - All syllables have own combination. ( code using named Assembled )
     - First Syllables
       Normal Characters in Korean keyboard 
       ```
@@ -69,7 +70,7 @@ npm run test
       ```
       ㅘㅙㅚㅝㅞㅟㅠㅢ
       ``` 
-    - Assambled Last Syllable
+    - Assembled Last Syllable
       Normal Characters in Korean keyboard 
       ```
       ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ
@@ -82,9 +83,9 @@ npm run test
   - Input character is only support single element.
   - Check inputted character is Korean element. 
   - Check previus last character is Korean.
-  - Check previus character is element string or assambled or combinated element.
+  - Check previus character is element string or assembled or combinated element.
   - Merger to previus string and inputted character.
-  - Return fully assambled string.
+  - Return fully assembled string.
 
 ### 3 Dimension Matrix of Korean
 
@@ -127,11 +128,11 @@ npm run test
   - R, SR, BR
   - FIRST,  MIDDLE,  LAST
   - FIRSTs, MIDDLEs, LASTs
-  - ASSAMBLED_MIDDLE, DISASSAMBLED_MIDDLE
-  - ASSAMBLED_LAST,   DISASSAMBLED_LAST
+  - ASSEMBLED_MIDDLE, DISASSEMBLED_MIDDLE
+  - ASSEMBLED_LAST,   DISASSEMBLED_LAST
 - Utils
-  - assamble(first, middle || asambledMiddle, last || assambledLast )
-  - disassamble( a syllable )
+  - assemble(first, middle || asambledMiddle, last || assembledLast )
+  - disassemble( a syllable )
   - isKorean( a syllable )
   - decrease( a syllable )
 
