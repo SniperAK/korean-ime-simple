@@ -1,11 +1,6 @@
-declare type KoreanIme = (prev: string, input: string )=> string;
-export default KoreanIme;
-
-declare type destructiveKorean = (value : string) => string[];
-declare type engToKor = (value : string) => string;
-declare type korToEng = (value : string) => string;
-export {
-  destructiveKorean,
-  engToKor,
-  korToEng,
+declare module 'KoreanIme' {
+  function KoreanIme(prev: string, input: string ): string;
+  function destructiveKorean(value : string): string[];
+  function engToKor(value : string): string;
+  function korToEng(value : string): string;
 }
