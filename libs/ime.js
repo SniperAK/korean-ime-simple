@@ -1,13 +1,6 @@
-const {
-  R, SR, BR,
-  FIRST,  MIDDLE,  LAST,
-  FIRSTs, MIDDLEs, LASTs,
-  ASSEMBLED_MIDDLE, DISASSEMBLED_MIDDLE,
-  ASSEMBLED_LAST,   DISASSEMBLED_LAST,
-  assemble, isKorean
-} = require('./common');
+import {R, SR, BR, FIRST, MIDDLE, LAST, FIRSTs, MIDDLEs, LASTs, ASSEMBLED_MIDDLE, ASSEMBLED_LAST, DISASSEMBLED_LAST, assemble} from './common.js';
 
-module.exports = (v = '', k = '')=>{
+const KoreanIME = (v = '', k = '')=>{
   // 0. 입력된 키가 한글 자판이 아닐때 이어 붙여서 리턴.
   // if( !isKorean(k) ) return (v || '') + k;
   
@@ -61,3 +54,5 @@ module.exports = (v = '', k = '')=>{
 
   return v + k;
 }
+
+export default KoreanIME;

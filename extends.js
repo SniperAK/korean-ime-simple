@@ -1,12 +1,4 @@
-const {
-  R, SR, BR,
-  FIRST,  MIDDLE,  LAST,
-  FIRSTs, MIDDLEs, LASTs,
-  ASSEMBLED_MIDDLE, DISASSEMBLED_MIDDLE,
-  ASSEMBLED_LAST,   DISASSEMBLED_LAST,
-  assemble, disassemble,
-  isKorean
-} = require('./libs/common');
+import { R, SR, BR, FIRST, MIDDLE, LAST, FIRSTs, MIDDLEs, LASTs, ASSEMBLED_MIDDLE, DISASSEMBLED_MIDDLE, ASSEMBLED_LAST, DISASSEMBLED_LAST, assemble, disassemble, isKorean } from './libs/common';
 
 const decrease = (v) => {
   let [f,m,l] = disassemble(v);
@@ -16,7 +8,7 @@ const decrease = (v) => {
   return assemble( f, m, l === '' ? undefined : l);
 }
 
-module.exports = {
+export default {
   R, SR, BR,
   FIRST,  MIDDLE,  LAST,
   FIRSTs, MIDDLEs, LASTs,

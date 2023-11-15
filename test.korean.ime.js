@@ -1,6 +1,6 @@
-const destructiveKorean = require('./libs/destructiveKorean');
-const KoreanIME = require('./libs/ime');
-const { engToKor, korToEng } = require('./libs/eng-kor');
+import KoreanIME from './libs/ime.js';
+import { engToKor, korToEng } from './libs/eng-kor.js';
+import destructiveKorean from './libs/destructiveKorean.js';
 
 console.log(engToKor, korToEng);
 

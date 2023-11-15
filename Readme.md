@@ -1,4 +1,4 @@
-# Korean IME Simple 1.2.2
+# Korean IME Simple 1.2.3
 > Korean Characters made by King Sejong the Great
 > 
 > Assemble Korean Input Method Editor. 
@@ -15,6 +15,7 @@
   - Improve code struct
   - Add Eng to Kor
 - 1.2.2 Minor buf fix
+- 1.2.3 typescript support
 
 ## Installation
 

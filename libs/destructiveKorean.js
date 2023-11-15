@@ -1,6 +1,6 @@
-const { R, FIRSTs, MIDDLEs, LASTs, DISASSEMBLED_MIDDLE, DISASSEMBLED_LAST } = require('./common');
+import { R, FIRSTs, MIDDLEs, LASTs, DISASSEMBLED_MIDDLE, DISASSEMBLED_LAST } from './common.js';
 
-module.exports = function destructiveKorean( str ) {
+function destructiveKorean( str ) {
   let first, middle, last;
 
   const cnt = str.length;
@@ -40,3 +40,5 @@ module.exports = function destructiveKorean( str ) {
 
   return chars;
 }
+
+export default destructiveKorean;

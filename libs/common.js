@@ -57,7 +57,7 @@ const isKorean = (v)=>{
   return (c >= R.S  && c <= R.E ) || (c >= SR.S && c <= SR.E) || (c >= BR.S && c <= BR.E);
 }
 
-module.exports = {
+export {
   FIRST,  MIDDLE,  LAST,
   FIRSTs, MIDDLEs, LASTs,
   R, SR, BR,
