@@ -1,6 +1,6 @@
-const destructiveKorean = require('./lib/destructiveKorean');
-const KoreanIME = require('./lib/ime');
-const { engToKor, korToEng } = require('./lib/eng-kor');
+const destructiveKorean = require('./libs/destructiveKorean');
+const KoreanIME = require('./libs/ime');
+const { engToKor, korToEng } = require('./libs/eng-kor');
 
 console.log(engToKor, korToEng);
 
@@ -32,6 +32,8 @@ const result = TestResult.filter(r=>r.success).length == TestCases.length;
 console.log('dkssudgktpdy.', engToKor('dkssudgktpdy.'));
 console.log('안녕하세요.', korToEng('안녕하세요.'));
 console.log('꽗뙀떿쏎.', korToEng('꽗뙀떿쏎'), engToKor(korToEng('꽗뙀떿쏎')));
+
+console.log('띄어쓰기가 포함 되어있을때는 어떤가요?.', korToEng('띄어쓰기가 포함 되어있을때는 어떤가요?'), engToKor(korToEng('띄어쓰기가 포함 되어있을때는 어떤가요?')));
 
 console.log( 'Test' , result ? 'success' : 'failed' );
 if( !result ){

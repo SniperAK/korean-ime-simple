@@ -1,4 +1,4 @@
-# Korean IME Simple 1.1.1
+# Korean IME Simple 1.2.2
 > Korean Characters made by King Sejong the Great
 > 
 > Assemble Korean Input Method Editor. 
@@ -11,9 +11,10 @@
 - 1.0.0 Release.
 - 1.1.0 Support extended functions and consts via [extends](##EXTENDS)
 - 1.1.1 Fixed mistype spelling as assamble to assemble.
-- 1.2.1 
+- 1.2.1
   - Improve code struct
   - Add Eng to Kor
+- 1.2.2 Minor buf fix
 
 ## Installation
 
