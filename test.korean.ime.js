@@ -1,54 +1,9 @@
-const {
-  R, SR, BR,
-  FIRST,  MIDDLE,  LAST,
-  FIRSTs, MIDDLEs, LASTs,
-  ASSEMBLED_MIDDLE, DISASSEMBLED_MIDDLE,
-  ASSEMBLED_LAST,   DISASSEMBLED_LAST,
-  assemble, isKorean
-} = require('./common');
+const destructiveKorean = require('./lib/destructiveKorean');
+const KoreanIME = require('./lib/ime');
+const { engToKor, korToEng } = require('./lib/eng-kor');
 
-function destructiveKorean( str ) {
-  let first, middle, last;
+console.log(engToKor, korToEng);
 
-  let cnt = str.length;
-  let chars = [];
-  let cCode;
-
-  for (let i = 0; i < cnt; i++) {
-    cCode = str.charCodeAt(i);
-
-    if (cCode == 32) { 
-      chars.push(str.charAt(i));
-      continue; 
-    }
-
-    // case of not korean
-    if (cCode < R.S || cCode > R.E) {
-        chars.push(str.charAt(i));
-        continue;
-    }
-
-    cCode  = str.charCodeAt(i) - R.S;
-
-    last = cCode % 28; // get element of last
-    middle = ((cCode - last) / 28 ) % 21 // get element of middle
-    first  = (((cCode - last) / 28 ) - middle ) / 21 // get element of first
-
-    chars.push(
-      FIRSTs[first], 
-      ...DISASSEMBLED_MIDDLE[ MIDDLEs[middle] ] ? DISASSEMBLED_MIDDLE[ MIDDLEs[middle] ] : [MIDDLEs[middle]],
-    );
-    if (LASTs[last] !== '') { 
-      chars.push(
-        ...DISASSEMBLED_LAST[ LASTs[last] ] ? DISASSEMBLED_LAST[ LASTs[last] ] : [LASTs[last]],
-      );
-    }
-  }
-
-  return chars;
-}
-
-const KoreanIME = require('./index');
 const TestCases = [
   '잡다한의학사전',
   '괇똷',
@@ -74,7 +29,12 @@ const test = (string)=>{
 const TestResult = TestCases.map(test);
 const result = TestResult.filter(r=>r.success).length == TestCases.length;
 
+console.log('dkssudgktpdy.', engToKor('dkssudgktpdy.'));
+console.log('안녕하세요.', korToEng('안녕하세요.'));
+console.log('꽗뙀떿쏎.', korToEng('꽗뙀떿쏎'), engToKor(korToEng('꽗뙀떿쏎')));
+
 console.log( 'Test' , result ? 'success' : 'failed' );
 if( !result ){
   console.log( TestResult );
 }
+

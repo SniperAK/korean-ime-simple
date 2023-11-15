@@ -6,7 +6,7 @@ const {
   ASSEMBLED_LAST,   DISASSEMBLED_LAST,
   assemble, disassemble,
   isKorean
-} = require('./common');
+} = require('./libs/common');
 
 const decrease = (v) => {
   let [f,m,l] = disassemble(v);

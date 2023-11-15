@@ -11,6 +11,9 @@
 - 1.0.0 Release.
 - 1.1.0 Support extended functions and consts via [extends](##EXTENDS)
 - 1.1.1 Fixed mistype spelling as assamble to assemble.
+- 1.2.1 
+  - Improve code struct
+  - Add Eng to Kor
 
 ## Installation
 
